@@ -1,7 +1,9 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import logo from './logo.svg';
+import { Path } from 'routes';
 
 const App: React.FC = () => {
   return (
@@ -17,6 +19,7 @@ const App: React.FC = () => {
           <OfficialLink className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
             Learn React
           </OfficialLink>
+          <OtameshiLink to={Path.otameshi}>おためしページへのリンク</OtameshiLink>
         </Header>
       </Wrapper>
     </>
@@ -60,6 +63,11 @@ const Logo = styled.img`
 
 const OfficialLink = styled.a`
   color: #09d3ac;
+`;
+
+const OtameshiLink = styled(Link)`
+  color: #fff;
+  margin-top: 30px;
 `;
 
 const Text = styled.p``;
