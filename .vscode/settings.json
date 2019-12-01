@@ -1,0 +1,23 @@
+{
+  "editor.rulers": [120],
+  "files.trimTrailingWhitespace": true,
+  "eslint.enable": true,
+  "editor.renderWhitespace": "all",
+  "css.lint.ieHack": "warning",
+  "javascript.implicitProjectConfig.checkJs": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ],
+  "editor.formatOnSave": false,
+  "eslint.autoFixOnSave": true
+}

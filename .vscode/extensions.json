@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "poissonnier.vscode-styled-components",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "eamodio.gitlens",
+    "ms-azuretools.vscode-docker"
+  ],
+  "unwantedRecommendations": []
+}
