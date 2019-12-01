@@ -17,6 +17,8 @@
     "es6": true
   },
   "rules": {
+    "sort-imports": ["error", { "ignoreDeclarationSort": true }],
+    "import/order": ["error", { "newlines-between": "always" }],
     "prettier/prettier": [
       "error",
       {
@@ -35,7 +37,7 @@
     },
     "import/ignore": ["node_modules"],
     "import/resolver": {
-      "node": { "moduleDirectory": ["node_modules"] }
+      "node": { "moduleDirectory": ["node_modules", "src"] }
     }
   }
 }
