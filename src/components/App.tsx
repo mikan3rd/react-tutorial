@@ -22,12 +22,13 @@ export const App: React.FC = () => {
 };
 
 const Wrapper = styled.div`
+  height: 100%;
   text-align: center;
 `;
 
 const Header = styled.header`
   background-color: #282c34;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

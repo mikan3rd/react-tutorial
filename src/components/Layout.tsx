@@ -1,9 +1,11 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import { Reset } from 'styled-reset';
 
 export const Layout: React.FC = ({ children }) => {
   return (
     <>
+      <Reset />
       <GlobalStyle />
       <Wrapper>
         <Header>React Tutorial</Header>
@@ -29,7 +31,9 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  height: 100%;
+`;
 
 const Header = styled.div`
   display: flex;
@@ -42,4 +46,6 @@ const Header = styled.div`
   padding: 0 20px;
 `;
 
-const Body = styled.div``;
+const Body = styled.div`
+  height: calc(100vh - 60px);
+`;

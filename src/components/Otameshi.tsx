@@ -19,6 +19,7 @@ export const Otameshi: React.FC = () => {
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 `;
 
 const Body = styled.div``;
