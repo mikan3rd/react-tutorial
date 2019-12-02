@@ -1,47 +1,27 @@
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 import logo from './logo.svg';
 
 import { Path } from 'routes';
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
-    <>
-      <GlobalStyle />
-
-      <Wrapper>
-        <Header>
-          <Logo src={logo} className='App-logo' alt='logo' />
-          <Text>
-            Edit <CodeText>src/App.tsx</CodeText> and save to reload.
-          </Text>
-          <OfficialLink className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-            Learn React
-          </OfficialLink>
-          <OtameshiLink to={Path.otameshi}>おためしページへのリンク</OtameshiLink>
-        </Header>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Header>
+        <Logo src={logo} className='App-logo' alt='logo' />
+        <Text>
+          Edit <CodeText>src/App.tsx</CodeText> and save to reload.
+        </Text>
+        <OfficialLink className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
+          Learn React
+        </OfficialLink>
+        <OtameshiLink to={Path.otameshi}>おためしページへのリンク</OtameshiLink>
+      </Header>
+    </Wrapper>
   );
 };
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-      sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
-  }
-`;
 
 const Wrapper = styled.div`
   text-align: center;
@@ -74,5 +54,3 @@ const OtameshiLink = styled(Link)`
 const Text = styled.p``;
 
 const CodeText = styled.code``;
-
-export default App;
