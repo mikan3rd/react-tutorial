@@ -6,6 +6,7 @@ export const Layout: React.FC = ({ children }) => {
     <>
       <GlobalStyle />
       <Wrapper>
+        <Header>React Tutorial</Header>
         <Body>{children}</Body>
       </Wrapper>
     </>
@@ -29,5 +30,16 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Wrapper = styled.div``;
+
+const Header = styled.div`
+  display: flex;
+  align-items: center;
+  height: 60px;
+  color: #fff;
+  background-color: #09d3ac;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 20px;
+`;
 
 const Body = styled.div``;
