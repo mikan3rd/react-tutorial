@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
-import { Layout } from 'Layout';
-import { App } from 'App';
-import { Otameshi } from 'Otameshi';
+import { Layout } from 'components/Layout';
+import { App } from 'components/App';
+import { Otameshi } from 'components/Otameshi';
 
 export const Path = {
   app: '/',

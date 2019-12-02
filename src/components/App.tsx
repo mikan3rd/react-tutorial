@@ -2,15 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import logo from './logo.svg';
-
 import { Path } from 'routes';
 
 export const App: React.FC = () => {
   return (
     <Wrapper>
       <Header>
-        <Logo src={logo} className='App-logo' alt='logo' />
+        <Logo src='/logo.svg' className='App-logo' alt='logo' />
         <Text>
           Edit <CodeText>src/App.tsx</CodeText> and save to reload.
         </Text>
