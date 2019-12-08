@@ -20,6 +20,7 @@
     "react/prop-types": ["error", { "skipUndeclared": true }],
     "sort-imports": ["error", { "ignoreDeclarationSort": true }],
     "import/order": ["error", { "newlines-between": "always" }],
+    "@typescript-eslint/explicit-function-return-type": ["off"],
     "prettier/prettier": [
       "error",
       {
