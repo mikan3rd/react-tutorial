@@ -18,6 +18,7 @@ export const Otameshi: React.FC = () => {
   const [searchResult, changeSearchResult] = useState<any>(null);
 
   const handleOnSearchButton = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    // form要素のbuttonのsubmitを止める
     event.preventDefault();
     const result = await searchGoogleBooks(searchString);
     if (result.isSuccess) {
@@ -34,7 +35,9 @@ export const Otameshi: React.FC = () => {
 
         <SearchForm>
           <Input placeholder='検索ワードを入力してね！' onChange={event => changeSearchString(event.target.value)} />
-          <SearchButton onClick={event => handleOnSearchButton(event)}>検索</SearchButton>
+          <SearchButton onClick={event => handleOnSearchButton(event)} disabled={!searchString}>
+            検索
+          </SearchButton>
         </SearchForm>
 
         {searchResult && (
@@ -58,23 +61,43 @@ const Wrapper = styled.div`
 const Body = styled.div``;
 
 const Title = styled.h1`
+  font-size: 24px;
+  font-weight: bold;
   text-align: center;
 `;
 
 const Input = styled.input`
   display: block;
-  margin: 0 auto;
   box-sizing: border-box;
-  width: 200px;
+  width: 250px;
+  font-size: 18px;
+  padding: 10px;
+  outline: none;
 `;
 
 const SearchForm = styled.form`
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-top: 20px;
 `;
 
-const SearchButton = styled.button``;
+const SearchButton = styled.button`
+  color: #fff;
+  background-color: #09d3ac;
+  border-radius: 3px;
+  margin-left: 10px;
+  padding: 10px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  cursor: pointer;
+  &:disabled {
+    background-color: #bfbfbf;
+    cursor: not-allowed;
+  }
+`;
 
 const ResultContent = styled.div`
   margin-top: 20px;
