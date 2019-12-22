@@ -12,9 +12,9 @@ export class ImageLinks extends Record<ImageLinksRecord>({
   smallThumbnail: '',
   thumbnail: '',
 }) {
-  constructor(data: JSObject = {}) {
-    const params = { ...data };
-    super(params);
+  static fromResponse(response: JSObject) {
+    const params = { ...response };
+    return new ImageLinks(params);
   }
 }
 
@@ -43,12 +43,12 @@ export class VolumeInfo extends Record<VolumeInfoRecord>({
   infoLink: '',
   canonicalVolumeLink: '',
 }) {
-  constructor(data: JSObject = {}) {
-    const params = { ...data };
+  static fromResponse(response: JSObject) {
+    const params = { ...response };
     params.authors = List(params.authors);
     params.publishedDate = dayjs(params.publishedDate);
-    params.imageLinks = new ImageLinks(params.imageLinks);
-    super(params);
+    params.imageLinks = ImageLinks.fromResponse(params.imageLinks);
+    return new VolumeInfo(params);
   }
 }
 
@@ -63,10 +63,10 @@ export class Volume extends Record<VolumeRecord>({
   selfLink: '',
   volumeInfo: new VolumeInfo(),
 }) {
-  constructor(data: JSObject) {
-    const params = { ...data };
-    params.volumeInfo = new VolumeInfo(params.volumeInfo);
-    super(params);
+  static fromResponse(response: JSObject) {
+    const params = { ...response };
+    params.volumeInfo = VolumeInfo.fromResponse(params.volumeInfo);
+    return new Volume(params);
   }
 }
 
@@ -81,9 +81,9 @@ export class VolumeList extends Record<VolumeListRecord>({
   totalItems: 0,
   items: List(),
 }) {
-  constructor(data: JSObject) {
-    const params = { ...data };
-    params.items = List(params.items.map((item: JSObject) => new Volume(item)));
-    super(params);
+  static fromResponse(response: JSObject) {
+    const params = { ...response };
+    params.items = List(params.items.map((item: JSObject) => Volume.fromResponse(item)));
+    return new VolumeList(params);
   }
 }
