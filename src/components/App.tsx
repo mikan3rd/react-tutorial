@@ -15,7 +15,7 @@ export const App: React.FC = () => {
         <OfficialLink className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
           Learn React
         </OfficialLink>
-        <OtameshiLink to={Path.otameshi}>おためしページへのリンク</OtameshiLink>
+        <OtameshiLink to={Path.googleBooks}>おためしページへのリンク</OtameshiLink>
       </Header>
     </Wrapper>
   );

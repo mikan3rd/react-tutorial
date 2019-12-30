@@ -3,18 +3,18 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 
 import { Layout } from 'components/Layout';
 import { App } from 'components/App';
-import { Otameshi } from 'components/Otameshi';
+import { GoogleBooks } from 'components/GoogleBooks';
 
 export const Path = {
   app: '/',
-  otameshi: '/otameshi',
+  googleBooks: '/google_books',
 };
 
 const routes = (
   <Layout>
     <Switch>
       <Route exact path={Path.app} component={App} />
-      <Route exact path={Path.otameshi} component={Otameshi} />
+      <Route exact path={Path.googleBooks} component={GoogleBooks} />
       <Redirect to={Path.app} />
     </Switch>
   </Layout>

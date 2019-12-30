@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
+import { SearchResult } from './SearchResult';
+
 import { VolumeList } from 'models/Volume';
 
 const searchGoogleBooks = async (searchString: string) => {
@@ -15,7 +17,7 @@ const searchGoogleBooks = async (searchString: string) => {
   }
 };
 
-export const Otameshi: React.FC = () => {
+export const GoogleBooks: React.FC = () => {
   const [searchString, changeSearchString] = useState('');
   const [searchResult, changeSearchResult] = useState<VolumeList>(new VolumeList());
 
@@ -42,12 +44,7 @@ export const Otameshi: React.FC = () => {
             検索
           </SearchButton>
         </SearchForm>
-
-        <ResultContent>
-          {searchResult.items.map(item => {
-            return <ResultTitle key={item.id}>{item.volumeInfo.title}</ResultTitle>;
-          })}
-        </ResultContent>
+        {searchResult.kind && <SearchResult volumeList={searchResult} />}
       </Body>
     </Wrapper>
   );
@@ -97,17 +94,5 @@ const SearchButton = styled.button`
   &:disabled {
     background-color: #bfbfbf;
     cursor: not-allowed;
-  }
-`;
-
-const ResultContent = styled.div`
-  margin-top: 20px;
-`;
-
-const ResultTitle = styled.div`
-  padding: 10px 0;
-  border-bottom: 1px solid;
-  &:first-of-type {
-    border-top: 1px solid;
   }
 `;
