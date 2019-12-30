@@ -3,12 +3,10 @@ import dayjs, { Dayjs } from 'dayjs';
 
 import { JSObject } from 'types/Common';
 
-interface ImageLinksRecord {
+export class ImageLinks extends Record<{
   smallThumbnail: string;
   thumbnail: string;
-}
-
-export class ImageLinks extends Record<ImageLinksRecord>({
+}>({
   smallThumbnail: '',
   thumbnail: '',
 }) {
@@ -18,7 +16,7 @@ export class ImageLinks extends Record<ImageLinksRecord>({
   }
 }
 
-interface VolumeInfoRecord {
+export class VolumeInfo extends Record<{
   title: string;
   subtitle: string;
   authors: List<string>;
@@ -29,9 +27,7 @@ interface VolumeInfoRecord {
   previewLink: string;
   infoLink: string;
   canonicalVolumeLink: string;
-}
-
-export class VolumeInfo extends Record<VolumeInfoRecord>({
+}>({
   title: '',
   subtitle: '',
   authors: List(),
@@ -52,13 +48,11 @@ export class VolumeInfo extends Record<VolumeInfoRecord>({
   }
 }
 
-interface VolumeRecord {
+export class Volume extends Record<{
   id: number;
   selfLink: string;
-  volumeInfo: VolumeInfoRecord;
-}
-
-export class Volume extends Record<VolumeRecord>({
+  volumeInfo: VolumeInfo;
+}>({
   id: 0,
   selfLink: '',
   volumeInfo: new VolumeInfo(),
