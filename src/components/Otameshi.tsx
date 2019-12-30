@@ -43,13 +43,11 @@ export const Otameshi: React.FC = () => {
           </SearchButton>
         </SearchForm>
 
-        {searchResult && (
-          <ResultContent>
-            {searchResult.items.map(item => {
-              return <ResultTitle key={item.id}>{item.volumeInfo.title}</ResultTitle>;
-            })}
-          </ResultContent>
-        )}
+        <ResultContent>
+          {searchResult.items.map(item => {
+            return <ResultTitle key={item.id}>{item.volumeInfo.title}</ResultTitle>;
+          })}
+        </ResultContent>
       </Body>
     </Wrapper>
   );
