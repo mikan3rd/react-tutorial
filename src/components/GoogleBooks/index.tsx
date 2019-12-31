@@ -56,7 +56,9 @@ const Wrapper = styled.div`
   margin-top: 20px;
 `;
 
-const Body = styled.div``;
+const Body = styled.div`
+  max-width: 600px;
+`;
 
 const Title = styled.h1`
   font-size: 24px;

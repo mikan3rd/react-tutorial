@@ -10,12 +10,23 @@ export const SearchResult: React.FC<{ volumeList: VolumeList }> = ({ volumeList 
       {volumeList.items.map(item => {
         const {
           id,
-          volumeInfo: { title, canonicalVolumeLink },
+          volumeInfo: {
+            title,
+            description,
+            canonicalVolumeLink,
+            imageLinks: { thumbnail },
+          },
         } = item;
         return (
-          <VolumeWrapper key={id} href={canonicalVolumeLink} target='_blank'>
-            <VolumeInfoTitle>{title}</VolumeInfoTitle>
-          </VolumeWrapper>
+          <VolumeLink key={id} href={canonicalVolumeLink} target='_blank'>
+            <VolumeWrapper>
+              <Thumbnail src={thumbnail} />
+              <RightContent>
+                <VolumeInfoTitle>{title}</VolumeInfoTitle>
+                <VolumeDescription>{description}</VolumeDescription>
+              </RightContent>
+            </VolumeWrapper>
+          </VolumeLink>
         );
       })}
     </ResultContent>
@@ -28,7 +39,7 @@ const ResultContent = styled.div`
 
 const TotalNum = styled.div``;
 
-const VolumeWrapper = styled.a`
+const VolumeLink = styled.a`
   display: block;
   border: 1px solid;
   border-radius: 10px;
@@ -38,6 +49,28 @@ const VolumeWrapper = styled.a`
   text-decoration: none;
 `;
 
+const VolumeWrapper = styled.div`
+  display: flex;
+`;
+
+const Thumbnail = styled.img`
+  flex: none;
+  width: 200px;
+`;
+
+const RightContent = styled.div`
+  margin-left: 10px;
+`;
+
 const VolumeInfoTitle = styled.div`
-  padding: 10px 0;
+  font-weight: bold;
+`;
+
+const VolumeDescription = styled.p`
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: pre-wrap;
+  margin-top: 10px;
 `;
