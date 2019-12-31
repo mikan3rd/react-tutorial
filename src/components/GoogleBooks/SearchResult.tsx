@@ -12,7 +12,8 @@ export const SearchResult: React.FC<{ volumeList: VolumeList }> = ({ volumeList 
           id,
           volumeInfo: {
             title,
-            description,
+            descriptionWithNewLine,
+            publishedDateString,
             canonicalVolumeLink,
             imageLinks: { thumbnail },
           },
@@ -23,7 +24,8 @@ export const SearchResult: React.FC<{ volumeList: VolumeList }> = ({ volumeList 
               <Thumbnail src={thumbnail} />
               <RightContent>
                 <VolumeInfoTitle>{title}</VolumeInfoTitle>
-                <VolumeDescription>{description}</VolumeDescription>
+                <PublishDate>{publishedDateString}</PublishDate>
+                <VolumeDescription>{descriptionWithNewLine}</VolumeDescription>
               </RightContent>
             </VolumeWrapper>
           </VolumeLink>
@@ -34,7 +36,7 @@ export const SearchResult: React.FC<{ volumeList: VolumeList }> = ({ volumeList 
 };
 
 const ResultContent = styled.div`
-  margin-top: 20px;
+  margin-top: 40px;
 `;
 
 const TotalNum = styled.div``;
@@ -63,12 +65,17 @@ const RightContent = styled.div`
 `;
 
 const VolumeInfoTitle = styled.div`
+  font-size: 24px;
   font-weight: bold;
+`;
+
+const PublishDate = styled.div`
+  margin-top: 10px;
 `;
 
 const VolumeDescription = styled.p`
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   white-space: pre-wrap;

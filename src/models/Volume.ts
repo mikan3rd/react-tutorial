@@ -46,6 +46,12 @@ export class VolumeInfo extends Record<{
     params.imageLinks = ImageLinks.fromResponse(params.imageLinks);
     return new VolumeInfo(params);
   }
+  get descriptionWithNewLine() {
+    return this.description.replace('。 ', '\n');
+  }
+  get publishedDateString() {
+    return this.publishedDate.format('YYYY/MM/DD');
+  }
 }
 
 export class Volume extends Record<{
