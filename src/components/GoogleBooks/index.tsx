@@ -1,24 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { SearchResult } from './SearchResult';
 
-import { VolumeList } from 'models/Volume';
 import { State } from 'reducers';
 import { GoogleBooksActions } from 'actions/googleBooks';
-
-const searchGoogleBooks = async (searchString: string) => {
-  const url = 'https://www.googleapis.com/books/v1/volumes';
-  const params = { q: searchString };
-  try {
-    const response = await axios.get(url, { params });
-    return { isSuccess: true, data: response.data, error: null };
-  } catch (error) {
-    return { isSuccess: false, data: null, error };
-  }
-};
 
 export const GoogleBooks: React.FC = () => {
   const [searchString, changeSearchString] = useState('');
@@ -27,18 +14,6 @@ export const GoogleBooks: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  const handleOnSearchButton = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    // form要素のbuttonのsubmitを止める
-    event.preventDefault();
-
-    const result = await searchGoogleBooks(searchString);
-    if (result.isSuccess) {
-      dispatch(GoogleBooksActions.setVolumes(VolumeList.fromResponse(result.data)));
-    } else {
-      window.alert(String(result.error));
-    }
-  };
-
   return (
     <Wrapper>
       <Body>
@@ -46,7 +21,13 @@ export const GoogleBooks: React.FC = () => {
 
         <SearchForm>
           <Input placeholder='検索ワードを入力してね！' onChange={event => changeSearchString(event.target.value)} />
-          <SearchButton onClick={event => handleOnSearchButton(event)} disabled={!searchString}>
+          <SearchButton
+            onClick={event => {
+              event.preventDefault();
+              dispatch(GoogleBooksActions.getVolumes(searchString));
+            }}
+            disabled={!searchString}
+          >
             検索
           </SearchButton>
         </SearchForm>
