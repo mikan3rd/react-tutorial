@@ -1,7 +1,10 @@
 import actionCreatorFactory from 'typescript-fsa';
 
+import { VolumeList } from 'models/Volume';
+
 const actionCreator = actionCreatorFactory('GoogleBooks');
 
 export const GoogleBooksActions = {
-  initialize: actionCreator('initialize'),
+  getVolumes: actionCreator('getVolumes'),
+  setVolumes: actionCreator<VolumeList>('setVolumes'),
 };

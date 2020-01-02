@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { SearchResult } from './SearchResult';
 
 import { VolumeList } from 'models/Volume';
+import { State } from 'reducers';
+import { GoogleBooksActions } from 'actions/googleBooks';
 
 const searchGoogleBooks = async (searchString: string) => {
   const url = 'https://www.googleapis.com/books/v1/volumes';
@@ -19,7 +22,10 @@ const searchGoogleBooks = async (searchString: string) => {
 
 export const GoogleBooks: React.FC = () => {
   const [searchString, changeSearchString] = useState('');
-  const [searchResult, changeSearchResult] = useState<VolumeList>(new VolumeList());
+
+  const { volumeList } = useSelector((state: State) => ({ volumeList: state.googleBooks.volumeList }));
+
+  const dispatch = useDispatch();
 
   const handleOnSearchButton = async (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     // form要素のbuttonのsubmitを止める
@@ -27,7 +33,7 @@ export const GoogleBooks: React.FC = () => {
 
     const result = await searchGoogleBooks(searchString);
     if (result.isSuccess) {
-      changeSearchResult(VolumeList.fromResponse(result.data));
+      dispatch(GoogleBooksActions.setVolumes(VolumeList.fromResponse(result.data)));
     } else {
       window.alert(String(result.error));
     }
@@ -44,7 +50,7 @@ export const GoogleBooks: React.FC = () => {
             検索
           </SearchButton>
         </SearchForm>
-        {searchResult.kind && <SearchResult volumeList={searchResult} />}
+        {volumeList.kind && <SearchResult volumeList={volumeList} />}
       </Body>
     </Wrapper>
   );

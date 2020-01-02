@@ -2,16 +2,17 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { Record } from 'immutable';
 
 import { GoogleBooksActions } from 'actions/googleBooks';
+import { VolumeList } from 'models/Volume';
 
 export class GoogleBooksState extends Record<{
-  test: string;
+  volumeList: VolumeList;
 }>({
-  test: 'test',
+  volumeList: new VolumeList(),
 }) {}
 
 export const googleBooksReducer = reducerWithInitialState(new GoogleBooksState()).case(
-  GoogleBooksActions.initialize,
+  GoogleBooksActions.setVolumes,
   (state, payload) => {
-    return state.set('test', 'aaa');
+    return state.set('volumeList', payload);
   },
 );
