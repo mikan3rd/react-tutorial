@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { SearchResult } from './SearchResult';
+import { Loader } from './Loader';
 
 import { State } from 'reducers';
 import { GoogleBooksActions } from 'actions/googleBooks';
@@ -10,7 +11,10 @@ import { GoogleBooksActions } from 'actions/googleBooks';
 export const GoogleBooks: React.FC = () => {
   const [searchString, changeSearchString] = useState('');
 
-  const { volumeList } = useSelector((state: State) => ({ volumeList: state.googleBooks.volumeList }));
+  const { volumeList, isSearching } = useSelector((state: State) => ({
+    volumeList: state.googleBooks.volumeList,
+    isSearching: state.googleBooks.isSearching,
+  }));
 
   const dispatch = useDispatch();
 
@@ -18,7 +22,6 @@ export const GoogleBooks: React.FC = () => {
     <Wrapper>
       <Body>
         <Title>Google Books 検索</Title>
-
         <SearchForm>
           <Input placeholder='検索ワードを入力してね！' onChange={event => changeSearchString(event.target.value)} />
           <SearchButton
@@ -33,6 +36,7 @@ export const GoogleBooks: React.FC = () => {
         </SearchForm>
         {volumeList.kind && <SearchResult volumeList={volumeList} />}
       </Body>
+      <Loader isSearching={isSearching} />
     </Wrapper>
   );
 };
@@ -40,7 +44,7 @@ export const GoogleBooks: React.FC = () => {
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin: 20px 0;
 `;
 
 const Body = styled.div`
