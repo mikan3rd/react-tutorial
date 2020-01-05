@@ -70,13 +70,11 @@ export class Volume extends Record<{
   }
 }
 
-interface VolumeListRecord {
+export class VolumeList extends Record<{
   kind: string;
   totalItems: number;
   items: List<Volume>;
-}
-
-export class VolumeList extends Record<VolumeListRecord>({
+}>({
   kind: '',
   totalItems: 0,
   items: List(),
