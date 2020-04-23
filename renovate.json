@@ -1,6 +1,11 @@
 {
   "extends": ["config:base"],
-  "automerge": true,
-  "vulnerabilityAlerts": true,
-  "lockFileMaintenance": { "enabled": true }
+  "timezone": "Asia/Tokyo",
+  "labels": ["renovate"],
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    }
+  ]
 }
