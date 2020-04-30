@@ -9,7 +9,7 @@
     "@types/react-dom": "16.9.7",
     "axios": "0.19.2",
     "connected-react-router": "6.8.0",
-    "dayjs": "1.8.25",
+    "dayjs": "1.8.26",
     "immutable": "4.0.0-rc.12",
     "react": "16.13.1",
     "react-dom": "16.13.1",
