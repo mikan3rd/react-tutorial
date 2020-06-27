@@ -7,7 +7,7 @@ export const SearchResult: React.FC<{ volumeList: VolumeList }> = ({ volumeList 
   return (
     <ResultContent>
       <TotalNum>検索結果: {volumeList.totalItems}件</TotalNum>
-      {volumeList.items.map(item => {
+      {volumeList.items.map((item) => {
         const {
           id,
           volumeInfo: {
