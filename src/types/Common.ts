@@ -1,1 +1,1 @@
-export type JSObject = { [p: string]: any };
+export type JSObject = { [p: string]: unknown };
