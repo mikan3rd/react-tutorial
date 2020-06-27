@@ -23,9 +23,9 @@ export const GoogleBooks: React.FC = () => {
       <Body>
         <Title>Google Books 検索</Title>
         <SearchForm>
-          <Input placeholder='検索ワードを入力してね！' onChange={event => changeSearchString(event.target.value)} />
+          <Input placeholder='検索ワードを入力してね！' onChange={(event) => changeSearchString(event.target.value)} />
           <SearchButton
-            onClick={event => {
+            onClick={(event) => {
               event.preventDefault();
               dispatch(GoogleBooksActions.getVolumes(searchString));
             }}

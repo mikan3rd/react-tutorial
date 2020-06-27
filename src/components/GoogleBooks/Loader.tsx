@@ -16,7 +16,7 @@ const Wrapper = styled.div<{ isSearching: boolean }>`
   bottom: 0;
   right: 0;
   left: 0;
-  display: ${props => (props.isSearching ? 'flex' : 'none')};
+  display: ${(props) => (props.isSearching ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
   background-color: gray;
