@@ -7,7 +7,7 @@ const apiClient = new ApiClient(baseURL);
 const VOLUME_PATH = '/volumes';
 
 export class VolumeApi {
-  static get(params: JSObject): Promise<{}> {
+  static get(params: JSObject): Promise<unknown> {
     return apiClient.get(VOLUME_PATH, params);
   }
 }
