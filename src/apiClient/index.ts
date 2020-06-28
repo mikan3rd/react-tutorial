@@ -16,7 +16,7 @@ export class ApiClient {
       },
     );
   }
-  async get<T = object>(path: string, params: object = {}): Promise<AxiosResponse<T>> {
+  async get<T>(path: string, params = {}): Promise<AxiosResponse<T>> {
     try {
       const result = await this.axiosInstance.get(path, { params });
       return this.createSuccessPromise<T>(result.data);
@@ -24,7 +24,7 @@ export class ApiClient {
       return this.createFailurePromise<T>(e);
     }
   }
-  async post<T = object>(path: string, params: object = {}): Promise<AxiosResponse<T>> {
+  async post<T>(path: string, params = {}): Promise<AxiosResponse<T>> {
     try {
       const result = await this.axiosInstance.post<T>(path, params);
       return this.createSuccessPromise<T>(result.data);
@@ -32,7 +32,7 @@ export class ApiClient {
       return this.createFailurePromise<T>(e);
     }
   }
-  async put<T = object>(path: string, params: object = {}): Promise<AxiosResponse<T>> {
+  async put<T>(path: string, params = {}): Promise<AxiosResponse<T>> {
     try {
       const result = await this.axiosInstance.put<T>(path, params);
       return this.createSuccessPromise<T>(result.data);
@@ -40,7 +40,7 @@ export class ApiClient {
       return this.createFailurePromise<T>(e);
     }
   }
-  async delete<T = object>(path: string): Promise<AxiosResponse<T>> {
+  async delete<T>(path: string): Promise<AxiosResponse<T>> {
     try {
       const result = await this.axiosInstance.delete(path);
       return this.createSuccessPromise<T>(result.data);
@@ -48,7 +48,7 @@ export class ApiClient {
       return this.createFailurePromise<T>(e);
     }
   }
-  async patch<T = object>(path: string, params: object = {}): Promise<AxiosResponse<T>> {
+  async patch<T>(path: string, params = {}): Promise<AxiosResponse<T>> {
     try {
       const result = await this.axiosInstance.patch<T>(path, params);
       return this.createSuccessPromise<T>(result.data);
