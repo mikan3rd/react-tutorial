@@ -16,7 +16,7 @@
     "@types/node": "12.12.54",
     "@types/react": "16.9.45",
     "@types/react-dom": "16.9.8",
-    "axios": "0.19.2",
+    "axios": "0.20.0",
     "connected-react-router": "6.8.0",
     "dayjs": "1.8.34",
     "immutable": "4.0.0-rc.12",
