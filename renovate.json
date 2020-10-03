@@ -1,12 +1,12 @@
 {
   "extends": ["config:base"],
   "timezone": "Asia/Tokyo",
+  "schedule": "on saturday",
   "labels": ["renovate"],
   "packageRules": [
     {
       "groupName": "minor dependencies",
       "updateTypes": ["minor", "patch", "pin", "digest", "lockFileMaintenance"],
-      "schedule": "on saturday",
       "automerge": true
     }
   ]
