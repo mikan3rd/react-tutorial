@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "@types/jest": "26.0.19",
-    "@types/node": "12.19.9",
+    "@types/node": "12.19.11",
     "@types/react": "16.14.2",
     "@types/react-dom": "16.9.10",
-    "axios": "0.21.0",
+    "axios": "0.21.1",
     "connected-react-router": "6.8.0",
     "dayjs": "1.9.7",
     "immutable": "4.0.0-rc.12",
@@ -35,7 +35,7 @@
     "typescript-fsa-reducers": "1.2.2"
   },
   "devDependencies": {
-    "@types/react-redux": "7.1.12",
+    "@types/react-redux": "7.1.14",
     "@types/react-router-dom": "5.1.6",
     "@types/redux-logger": "3.0.8",
     "@types/styled-components": "5.1.7",
