@@ -12,7 +12,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@types/jest": "26.0.20",
+    "@types/jest": "29.5.13",
     "@types/node": "12.20.4",
     "@types/react": "17.0.3",
     "@types/react-dom": "16.9.11",
